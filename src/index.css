@@ -7,7 +7,7 @@
 
 .slider {
   height:400px; 
-  background-image: url('./public/img/slider.png');
+  background-image: url('/img/slider.png');
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
