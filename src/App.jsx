@@ -34,10 +34,9 @@ function App() {
       {/* 네비게이션 바 */}
       <Navbar style={{ backgroundColor: '#f1c6c0' }} variant="none">
         <Container>
-          <Navbar.Brand href="#home" style={{ color: '#333333' }}>Nyaong</Navbar.Brand>
+          <Navbar.Brand onClick={() => { navigate('/') }} style={{ color: '#333333' }}>Nyaong</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={() => { navigate('/') }} style={{ color: '#333333' }}>Home</Nav.Link>
-            <Nav.Link onClick={() => { navigate('/detail/0') }} style={{ color: '#333333' }}>Detail</Nav.Link>
             <Nav.Link onClick={() => { navigate('/Cart') }} style={{ color: '#333333' }}>Cart</Nav.Link>
             <Nav.Link onClick={() => { navigate('/About') }} style={{ color: '#333333' }}>About</Nav.Link>
           </Nav>

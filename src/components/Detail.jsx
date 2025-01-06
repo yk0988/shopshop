@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { Button, Modal, Nav } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 import { addItem } from "../store"; // store에서 addItem import
-import { Button, Nav, Modal } from 'react-bootstrap';
 
-function Detail() {
+function Detail({shop}) {
   const { id } = useParams(); // URL에서 id를 가져옵니다.
 
   // id는 문자열로 반환되므로 숫자로 변환
   const productId = Number(id);
 
-  // Redux 상태에서 상품 데이터를 가져옵니다.
-  const shoes = useSelector((state) => state.cart || []); // state.cart가 배열인지 확인
-
-  // 선택한 상품 찾기
-  const selectedProduct = shoes.find((product) => product.id === productId);
+  const selectedProduct = shop.find((product) => product.id === productId);
 
   const dispatch = useDispatch();
 
