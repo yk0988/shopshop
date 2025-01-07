@@ -6,7 +6,6 @@ import { addItem } from "../store"; // store에서 addItem import
 
 function Detail({shop}) {
   const { id } = useParams(); // URL에서 id를 가져옵니다.
-
   // id는 문자열로 반환되므로 숫자로 변환
   const productId = Number(id);
 
@@ -31,7 +30,7 @@ function Detail({shop}) {
       addItem({
         id: selectedProduct.id,
         imgurl: selectedProduct.imgurl,  // 이미지 URL 경로 수정 (imgUrl에서 imgurl로 변경)
-        name: selectedProduct.name,
+        title: selectedProduct.title,
         count: 1,
       })
     );
@@ -53,7 +52,7 @@ function Detail({shop}) {
   }
 
   return (
-    <div className="container">
+<div className="container" style={{ marginTop: '100px' }}>
       <div className="row">
         <div className="col-md-6">
           {/* 상품 이미지 */}
@@ -65,8 +64,11 @@ function Detail({shop}) {
         </div>
         <div className="col-md-6">
           <h4 className="pt-5">{selectedProduct.name}</h4>
-          <p>{selectedProduct.description || "상품 설명이 없습니다."}</p> {/* description이 없다면 기본 메시지 표시 */}
-          <p>{selectedProduct.price ? `${selectedProduct.price} 원` : "가격 정보가 없습니다."}</p> {/* 가격이 없으면 기본 메시지 */}
+          {/* 상품명, 설명, 가격을 조건부로 렌더링 */}
+          <p style={{ fontSize: '35px' }}>
+            {selectedProduct.title ? selectedProduct.title : "상품명이 없습니다."}
+          </p>
+          <p>💰{selectedProduct.price ? `${selectedProduct.price} 원` : "가격 정보가 없습니다."}</p>
 
           <Button
             variant="primary"
@@ -83,7 +85,7 @@ function Detail({shop}) {
         </div>
       </div>
 
-      <Nav variant="tabs" defaultActiveKey="link0">
+      <Nav variant="tabs" defaultActiveKey="link0" style={{ marginTop: '100px' }}>
         <Nav.Item>
           <Nav.Link onClick={() => setTap(0)} eventKey="link0">버튼0</Nav.Link>
         </Nav.Item>
