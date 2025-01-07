@@ -1,0 +1,23 @@
+[
+  {
+    "id": 4,
+    "title": "고양이 장난감 세트",
+    "imgUrl": "img/cats/shop4.jpg",
+    "content": "고양이용 다양한 장난감 세트",
+    "price": 30900
+  },
+  {
+    "id": 5,
+    "title": "고양이 캣타워",
+    "imgUrl": "img/cats/shop5.jpg",
+    "content": "고양이 전용 캣타워, 쉬는 공간과 놀이 공간 제공",
+    "price": 139000
+  },
+  {
+    "id": 6,
+    "title": "고양이 스크래쳐",
+    "imgUrl": "img/cats/shop6.jpg",
+    "content": "고양이 발톱 갈이용 스크래쳐",
+    "price": 119000
+  }
+]

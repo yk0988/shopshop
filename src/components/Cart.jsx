@@ -22,11 +22,11 @@ function Cart() {
 
   return (
     <>
-      <div className="container">
+      <div className="container" style={{ paddingTop: "50px" }}> {/* 위쪽 여백 추가 */}
         <div className="row">
           <div className="col-sm-12" style={{ textAlign: "center" }}>
             <h5 style={{ padding: "50px" }}>
-            😻 {state.user.name} {state.user.age}님의 장바구니 🐱
+              😻 {state.user.name} {state.user.age}님의 장바구니 🐱
             </h5>
 
             <Table>
