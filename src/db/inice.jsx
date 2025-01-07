@@ -20,13 +20,15 @@ let nice = [
         content: "Born in the States",
         price: 130000
     },
-    {
-        id : 3,
-        title : "Flowey",
-        imgUrl: "/img/shop1.jpg",
-        content : "only 5 inches",
-        price : 150000
-      }
+    
 ]
+
+// {
+//     id : 3,
+//     title : "Flowey",
+//     imgUrl: "/img/shop1.jpg",
+//     content : "only 5 inches",
+//     price : 150000
+//   }
 
 export default nice;

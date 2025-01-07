@@ -100,17 +100,17 @@ function Detail({shop}) {
       <img src="/img/slider.png" alt="Slider" style={{ width: '100px', height: 'auto' }} />
 
       {/* 모달 창 */}
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
-        <Modal.Header closeButton>
-          <Modal.Title>알림</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>상품이 담겼습니다!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+      <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal.Body style={{ textAlign: 'center' }}>
+          상품이 담겼습니다!
+        </Modal.Body>
+        <Modal.Footer style={{ justifyContent: 'center' }}>
+          <Button variant="primary" onClick={() => setShowModal(false)}>
             닫기
           </Button>
         </Modal.Footer>
       </Modal>
+
     </div>
   );
 }

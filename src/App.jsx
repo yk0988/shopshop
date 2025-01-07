@@ -13,25 +13,25 @@ import Cart from "./components/Cart";
 import { Provider } from 'react-redux'; // Redux Provider import
 import store from './store'; // store import
 import Footer from './components/Footer'; // 푸터 컴포넌트 임포트
+import axios from 'axios'
 
 function App() {
-  // 상태 관리: shoplist만 사용 : 현재 상태 값 = 상품 목록
   let [shoplist, setShop] = useState(data);
   let navigate = useNavigate(); // navigate 함수 정의
   let [nice, setNice] = useState(inice); // nice 상태
+  let [count, setCount] = useState(1);  // count 상태 추가
 
   function About() {
     return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center",  marginTop : "50px"}}>
         <img src="./public/img/slider2.jpg" alt="Cat" style={{ maxWidth: "50%", height: "auto" }} />
-        <h4>하나 사세옹</h4>
+        <h4>모자 사세옹</h4>
       </div>
     );
   }
   
   return (
     <div className="App">
-      {/* 네비게이션 바 */}
       <Navbar style={{ backgroundColor: '#f1c6c0' }} variant="none">
         <Container>
           <Navbar.Brand onClick={() => { navigate('/') }} style={{ color: '#333333' }}>Nyaong</Navbar.Brand>
@@ -43,23 +43,16 @@ function App() {
         </Container>
       </Navbar>
 
-
-
-      {/* 라우팅 설정 */}
       <Routes>
-        {/* 메인 페이지 - 제품 목록 */}
         <Route
           path="/"
           element={
             <div>
-              <div className="slider">
-                {/* 슬라이더 콘텐츠를 여기에 추가할 수 있습니다 */}
-              </div>
-              <Title /> {/* 타이틀 컴포넌트 */}
+              <div className="slider"></div>
+              <Title /> 
 
               <div className="container" style={{ marginTop: '20px' }}>
                 <div className="row">
-                  {/* 이름순, 가격순 정렬 버튼 */}
                   <div style={{ textAlign: 'center' }}>
                     <Button
                       variant="outline-primary"
@@ -97,69 +90,67 @@ function App() {
                     <p></p>
                   </div>
 
-                  {/* 상품 목록 출력 */}
                   {shoplist.map((ele) => {
                     return (
                       <Products
-                        shop={ele} // 각 제품의 정보를 전달
-                        key={ele.id} // 고유 key 값으로 ele.id 사용
+                        shop={ele}
+                        key={ele.id}
                       />
                     );
                   })}
 
-                  {/* Title2 컴포넌트와 버튼 추가 */}
                   <div style={{ textAlign: 'center' }}>
                     <Title2 />
-                    <Button variant="outline-success">+ 3개 상품 더 보기</Button>{' '}
+                    <Button variant="outline-success" count = {count} onClick={() => {
+                 
+                        if(count==1){
+                          axios.get('https://raw.githubusercontent.com/yk0988/shopshop/main/nice2.json').then((result)=>{
+                              let copy10 =[...nice, ...result.data];
+                              setNice(copy10);
+                              setCount(count + 1);
+                      
+                        })}else if(count==2){
+                          axios.get('https://raw.githubusercontent.com/yk0988/shopshop/main/nice3.json').then((result)=>{
+                            let copy11 =[...nice, ...result.data];
+                            setNice(copy11);
+                            setCount(count + 1);
+                            })   
+                        }
+              
+                        if(count===3){
+                          alert("더이상 상품이 없습니다.");  
+                        }
+              }}> + 3개 상품 더 보기 </Button>{' '}   
+
+
+
                   </div>
 
-                  {/* nice 배열을 map해서 ComNice 렌더링 */}
                   <div className="container" style={{ marginTop: '30px' }}>
-                  <div className="row">
-                    {nice.slice(0, 3).map((ele, i) => {  // nice 배열에서 첫 3개 항목만 선택
-                      return <ComNice nice={ele} key={ele.id} />;
-                    })}
+                    <div className="row">
+                      {nice.map((ele) => {
+                        return <ComNice nice={ele} key={ele.id} />;
+                      })}
+                    </div>
                   </div>
-                </div>
                 </div>
               </div>
             </div>
           }
         />
-
-        {/* 상세 페이지 - 동적 경로 */}
         <Route path="/detail/:id" element={<Detail shop={shoplist} />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<About />} />
-        <Route path="/about/member" element={<Member />} />
-        <Route path="/about/location" element={<Location />} />
       </Routes>
 
-      {/* Footer 컴포넌트 추가 */}
       <Footer />
     </div>
   );
 }
 
-function Member() {
-  return (
-    <>
-      <h4>Member</h4>
-    </>
-  );
-}
-
-function Location() {
-  return (
-    <>
-      <h4>Location</h4>
-    </>
-  );
-}
-
 export default function AppWrapper() {
   return (
-    <Provider store={store}> {/* Redux Provider로 감싸기 */}
+    <Provider store={store}> 
       <BrowserRouter>
         <App />
       </BrowserRouter>
