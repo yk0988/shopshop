@@ -2,21 +2,21 @@
   {
     "id": 7,
     "title": "고양이 발톱 놀이 장난감 세트",
-    "imgUrl": "img/cats/shop7.jpg",
+    "imgUrl": "img/shop7.jpg",
     "content": "고양이를 위한 다양한 장난감 세트, 발톱을 갈 수 있는 장난감부터 풍성한 놀잇감까지 포함되어 있어요!",
     "price": 30900
   },
   {
     "id": 8,
     "title": "럭셔리 고양이 캣타워",
-    "imgUrl": "img/cats/shop8.jpg",
+    "imgUrl": "img/shop8.jpg",
     "content": "다양한 층으로 이루어진 캣타워. 고양이가 편안하게 쉬고 놀 수 있는 완벽한 공간을 제공합니다.",
     "price": 139000
   },
   {
     "id": 9,
     "title": "프리미엄 고양이 스크래쳐",
-    "imgUrl": "img/cats/shop9.jpg",
+    "imgUrl": "img/shop9.jpg",
     "content": "고양이의 발톱을 갈고, 스트레스를 해소하는 데 최적의 스크래쳐. 내구성이 강한 소재로 제작되었습니다.",
     "price": 119000
   }
