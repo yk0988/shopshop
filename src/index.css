@@ -1,17 +1,50 @@
 .bg {
-  height:500px; 
+  height: 500px;
   background-size: cover;
   background-position: center;
 }
 
-
 .slider {
-  height:400px; 
+  height: 400px; 
   background-image: url('/img/slider.png');
   background-size: cover;
   background-position: center;
   margin-bottom: 20px;
+  position: relative; /* 절대 위치를 사용하기 위해 상대 위치로 설정 */
 }
 
-.c1 {text-decoration: none; color:#000; text-align: center;}
-.c1:hover {color: green;}
+.slider-text {
+  position: absolute;
+  top: 50%; /* 세로로 가운데 위치 */
+  left: 50%; /* 수평으로 가운데 위치 */
+  transform: translate(75%, -50%); /* 중앙에서 약간 오른쪽으로 이동 */
+  color: white; 
+  text-align: center; 
+  font-family: Arial, sans-serif;
+
+}
+
+
+.slider-text h2 {
+  margin: 0; /* 기본 여백 없애기 */
+  font-size: 2rem; /* 제목 크기 */
+  font-weight: bold;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+
+}
+
+.slider-text p {
+  margin: 0; /* 기본 여백 없애기 */
+  font-size: 1.2rem; 
+}
+
+.c1 {
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+}
+
+.c1:hover {
+  color: green;
+}

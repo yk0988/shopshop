@@ -42,11 +42,11 @@ function Detail({shop}) {
   // TabContent 컴포넌트 추가
   function TabContent({ tap }) {
     if (tap === 0) {
-      return <div><img src="/img/slider.png" alt="Slider" style={{ width: '100px', height: 'auto' }} /></div>;
+      return <div><img src="" style={{ width: '100px', height: 'auto' }} /></div>;
     } else if (tap === 1) {
-      return <div><img src="/img/slider.png" alt="Slider" style={{ width: '100px', height: 'auto' }} /></div>;
+      return <div><img src="" style={{ width: '100px', height: 'auto' }} /></div>;
     } else if (tap === 2) {
-      return <div>버튼2에 해당하는 내용</div>;
+      return <div><img src="" style={{ width: '100px', height: 'auto' }} /></div>;
     }
     return null;
   }
@@ -99,7 +99,7 @@ function Detail({shop}) {
 
       {/* TabContent 표시 */}
       <TabContent tap={tap} />
-      <img src="/img/slider.png" alt="Slider" style={{ width: '100px', height: 'auto' }} />
+      <img src="" style={{ width: '100px', height: 'auto' }} />
 
       {/* 모달 창 */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>

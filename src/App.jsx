@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Navbar, Container, Nav } from 'react-bootstrap';
 import data from './db/shop'; // 상품 목록 데이터
 import Products from './components/Products'; // 제품 컴포넌트
@@ -15,11 +15,18 @@ import store from './store'; // store import
 import Footer from './components/Footer'; // 푸터 컴포넌트 임포트
 import axios from 'axios'
 
+
 function App() {
   let [shoplist, setShop] = useState(data);
   let navigate = useNavigate(); // navigate 함수 정의
   let [nice, setNice] = useState(inice); // nice 상태
   let [count, setCount] = useState(1);  // count 상태 추가
+
+  useEffect(() => {
+    fetch('http://localhost:3000/shop')
+    .then(res => res.json())
+    .then(data => console.log(data));
+  }, []);
 
   function About() {
     return (
@@ -48,7 +55,12 @@ function App() {
           path="/"
           element={
             <div>
-              <div className="slider"></div>
+              <div className="slider">
+            <div className="slider-text">
+              <h2>복실복실 친구들</h2>
+              <p>생각하는 작은머리 츄르명상</p>
+            </div>
+          </div>
               <Title /> 
 
               <div className="container" style={{ marginTop: '20px' }}>
